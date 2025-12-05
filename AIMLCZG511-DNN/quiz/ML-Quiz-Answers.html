@@ -1,0 +1,215 @@
+# Machine Learning Fundamentals - Quiz Answers
+
+## Question 1: Perceptron Misclassification
+**Question:** In the perceptron learning algorithm, what happens when a misclassification occurs?
+
+**Answer:** b. The weights are updated proportionally to the error and input values
+
+**Explanation:** When a misclassification occurs, the perceptron updates weights using the rule: w ← w + η(t - ŷ)x, where the adjustment is proportional to both the error (t - ŷ) and the input values (x).
+
+---
+
+## Question 2: Learning Rate in Gradient Descent
+**Question:** In gradient descent, what does the learning rate η control?
+
+**Answer:** d. The step size of weight updates
+
+**Explanation:** The learning rate η determines the magnitude of parameter adjustments in each iteration, scaling the gradient to control how far weights move toward minimizing the loss function. Higher η enables faster convergence but risks overshooting, while lower η ensures stability at slower progress.
+
+---
+
+## Question 3: Logit Definition
+**Question:** In the equation z = w^T x + b for logistic regression, what is 'z' called?
+
+**Answer:** d. The logit or pre-activation
+
+**Explanation:** z represents the linear combination of inputs and weights plus bias, known as the logit (log-odds) or pre-activation value before applying the sigmoid function to obtain probabilities.
+
+---
+
+## Question 4: Sigmoid Function at z=0
+**Question:** For the logit z = 0 in logistic regression, what is the sigmoid output σ(0)?
+
+**Answer:** a. 0.5
+
+**Explanation:** σ(0) = 1/(1 + e^0) = 1/(1 + 1) = 0.5. This midpoint value indicates equal probability for both classes in binary classification.
+
+---
+
+## Question 5: Input Scaling Effect on Weights
+**Question:** In linear regression with a single neuron, if all input features are multiplied by a constant c, how does this affect the optimal weights (excluding bias)?
+
+**Answer:** a. They are divided by c
+
+**Explanation:** When inputs are scaled by c (x' = cx), the new optimal weights become w' = w/c to preserve predictions: w'^T x' = (w/c)^T(cx) = w^T x. The bias remains unchanged.
+
+---
+
+## Question 6: Bias Term Representation
+**Question:** In linear regression, what does the bias term w_0 represent?
+
+**Answer:** b. The intercept of the linear function
+
+**Explanation:** The bias term w_0 (or b) represents the y-intercept, the predicted value when all input features are zero. It shifts the regression line vertically, independent of feature values.
+
+---
+
+## Question 7: Perceptron Weight Update Calculation
+**Question:** A perceptron is trained with learning rate η=0.5. For a misclassified example where t=0, ŷ=1, x=[2, 3], and current weights w=[1, 1], what are the updated weights?
+
+**Answer:** b. w=[0, -0.5]
+
+**Explanation:** Using w ← w + η(t - ŷ)x with t=0, ŷ=1, η=0.5, x=[2, 3]:
+- Error: t - ŷ = 0 - 1 = -1 (or -2 in some conventions)
+- Adjustment: 0.5 × (-2) × [2, 3] = [-1, -1.5]
+- New weights: [1-1, 1-1.5] = [0, -0.5]
+
+---
+
+## Question 8: Perceptron Output with Threshold
+**Question:** In a perceptron with 2 inputs (x_1, x_2), if the learned weights are w_1=-1, w_0=0.5, what is the output for input (1, 0)?
+
+**Answer:** d. 0 (since -1×1 + 0.5 = -0.5 < 0)
+
+**Explanation:** z = w_1 × x_1 + w_0 = -1 × 1 + 0.5 = -0.5. The step activation function outputs 1 if z ≥ 0 and 0 otherwise, so -0.5 < 0 yields output 0.
+
+---
+
+## Question 9: Binary Classification Label Values
+**Question:** In binary classification, what are the typical values for the output labels?
+
+**Answer:** a. {0, 1} or {-1, +1}
+
+**Explanation:** Binary classification typically uses {0, 1} for logistic regression and probability-based models, or {-1, +1} for perceptrons and SVMs. These discrete values enable clear class separation.
+
+---
+
+## Question 10: Sigmoid Gradient Magnitude
+**Question:** Which region of the sigmoid function produces the largest gradients, making SGD updates most effective?
+
+**Answer:** c. z values close to 0
+
+**Explanation:** The sigmoid derivative σ'(z) = σ(z)(1 - σ(z)) reaches maximum of 0.25 when z = 0 (where σ(0) = 0.5). At extreme values (z ≈ ±5), gradients approach zero, causing the vanishing gradient problem.
+
+---
+
+## Question 11: Logistic Regression Probability Range
+**Question:** Logistic regression can output probability values greater than 1 and less than 0.
+
+**Answer:** a. False
+
+**Explanation:** The sigmoid function σ(z) = 1/(1 + e^-z) mathematically constrains outputs to (0, 1), preventing values greater than 1 or less than 0, even for extreme z values.
+
+---
+
+## Question 12: Gradient Computation for MSE Loss
+**Question:** Given predictions ŷ = [2, 5, 8] and targets y = [3, 6, 7], compute the gradient ∇J with respect to w_0 (bias term) for the mean squared error loss.
+
+**Answer:** c. -0.33
+
+**Explanation:** For MSE loss, ∇w_0 J = (1/n) Σ(ŷ_i - y_i). With errors [-1, -1, +1]:
+- Gradient = (-1 - 1 + 1)/3 = -1/3 ≈ -0.33
+
+---
+
+## Question 13: Purpose of Test Set
+**Question:** When evaluating a linear regression model, what is the primary purpose of using a separate test set?
+
+**Answer:** b. To estimate how well the model generalizes to unseen data
+
+**Explanation:** A separate test set evaluates performance on data not used during training, providing an unbiased measure of generalization to new instances and preventing overfitting assessment.
+
+---
+
+## Question 14: Non-Linearly Separable Gate
+**Question:** Which of the following logic gates is NOT linearly separable and cannot be learned by a single perceptron?
+
+**Answer:** c. XOR gate
+
+**Explanation:** AND, OR, and NAND gates produce linearly separable truth tables. XOR is not linearly separable—its outputs (1 when inputs differ) cannot be divided by any straight line in 2D input space.
+
+---
+
+## Question 15: Advantages of MSE
+**Question:** What is the primary advantage of using Mean Squared Error (MSE) over other loss functions for linear regression?
+
+**Answer:** a. It is differentiable everywhere and convex for linear models
+
+**Explanation:** MSE is continuous, differentiable everywhere, and forms a convex quadratic function, guaranteeing a unique global minimum solvable via normal equations. This differentiability supports gradient-based optimization.
+
+---
+
+## Question 16: Perceptron Convergence Condition
+**Question:** The Perceptron learning algorithm is guaranteed to converge in a finite number of steps if the data is __________.
+
+**Answer:** d. linearly separable
+
+**Explanation:** The Perceptron Convergence Theorem proves finite convergence only when data is linearly separable (a perfect separating hyperplane exists). Without this, the algorithm cycles indefinitely.
+
+---
+
+## Question 17: Gradient Magnitude Interpretation
+**Question:** What does the magnitude of the gradient ||∇J(w)|| indicate during training?
+
+**Answer:** a. The steepness of the loss surface at the current weight values
+
+**Explanation:** ||∇J(w)|| quantifies the steepness or slope of the loss surface, indicating how rapidly the loss changes with small weight perturbations. Larger magnitudes signal steeper regions for bigger updates.
+
+---
+
+## Question 18: Sigmoid Prediction Confidence
+**Question:** If a sigmoid output is ŷ = 0.8 and the true label is y = 1, what can be said about the prediction?
+
+**Answer:** d. The prediction is correct with high confidence
+
+**Explanation:** ŷ = 0.8 indicates 80% probability for class 1, aligning with the true label y = 1. Values above 0.5 classify as 1, and 0.8 signifies high confidence due to proximity to 1.
+
+---
+
+## Question 19: Key Property of Neural Networks
+**Question:** Which of the following is a key property of Artificial Neural Networks?
+
+**Answer:** a. Highly parallel, distributed process
+
+**Explanation:** ANNs feature highly parallel and distributed processing across interconnected neurons, handling computations simultaneously in layers. Weights are adaptive (not fixed) and learned during training.
+
+---
+
+## Question 20: Binary Classification Decision Threshold
+**Question:** What is the decision threshold typically used in binary classification with sigmoid activation?
+
+**Answer:** b. 0.5
+
+**Explanation:** Outputs ≥ 0.5 predict class 1, and < 0.5 predict class 0. This midpoint balances the probability range (0,1), converting continuous sigmoid values to discrete labels. Thresholds can be tuned for imbalanced data, but 0.5 is standard.
+
+---
+
+## Summary
+
+| Q | Topic | Answer |
+|---|-------|--------|
+| 1 | Perceptron Misclassification | b |
+| 2 | Learning Rate | d |
+| 3 | Logit Definition | d |
+| 4 | Sigmoid at z=0 | a |
+| 5 | Input Scaling | a |
+| 6 | Bias Term | b |
+| 7 | Weight Update | b |
+| 8 | Perceptron Output | d |
+| 9 | Binary Labels | a |
+| 10 | Sigmoid Gradient | c |
+| 11 | Probability Range | a |
+| 12 | MSE Gradient | c |
+| 13 | Test Set Purpose | b |
+| 14 | Non-Separable Gate | c |
+| 15 | MSE Advantages | a |
+| 16 | Convergence | d |
+| 17 | Gradient Magnitude | a |
+| 18 | Prediction Confidence | d |
+| 19 | ANN Property | a |
+| 20 | Decision Threshold | b |
+
+---
+
+*Generated: December 1, 2025*
+*Machine Learning Fundamentals Quiz - Complete Answer Guide*
