@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Exam: Complete Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .slide-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+            height: 600px;
+            padding: 60px;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            display: block;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        
+        .slide h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .slide h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .slide p, .slide li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .slide ul {
+            margin-left: 30px;
+        }
+        
+        .slide li {
+            margin-bottom: 8px;
+        }
+        
+        .answer-box {
+            background: #e8f4f8;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .answer-box strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .explanation-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #667eea;
+            color: white;
+        }
+        
+        button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        .title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            font-size: 3.5em;
+            color: white;
+            border: none;
+            margin: 0;
+        }
+        
+        .title-slide p {
+            font-size: 1.5em;
+            color: #e0e0e0;
+            margin-top: 20px;
+        }
+        
+        .formula {
+            background: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- Title Slide -->
+        <div class="slide active title-slide">
+            <h1>Machine Learning Exam</h1>
+            <p>Complete Summary & Solutions</p>
+            <p style="margin-top: 50px; font-size: 1.2em;">19 Questions • All Answers & Explanations</p>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="slide">
+            <h1>Question 1: Sigmoid Function Properties</h1>
+            <h3>Question:</h3>
+            <p>Choose the appropriate option which indicate the correct properties of a sigmoid function?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (b)</strong><br>
+                It acts as a squashing function because it maps the whole real axis into a finite interval.
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>Sigmoid maps all inputs (-∞, +∞) to (0, 1) - the squashing property</li>
+                <li>Non-linear function (rules out linear option)</li>
+                <li>Used for binary, not multiclass classification</li>
+                <li>Simple derivative: σ'(x) = σ(x)(1-σ(x))</li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="slide">
+            <h1>Question 2: Regression Metric with Outliers</h1>
+            <h3>Question:</h3>
+            <p>Which metric for many outliers that you don't want to account for?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (a) Mean Absolute Error</strong><br>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>MAE:</strong> Treats errors linearly - ROBUST to outliers</li>
+                <li><strong>MSE & RMSE:</strong> Square errors, amplify large values - SENSITIVE</li>
+                <li>MAE Formula: (1/n)Σ|y_i - ŷ_i|</li>
+                <li>Outliers don't dominate the metric with MAE</li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="slide">
+            <h1>Question 3: Linear vs Quadratic for Noisy Data</h1>
+            <h3>Question:</h3>
+            <p>True/False: Better to use quadratic curve for very noisy data?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: FALSE</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>More complex models overfit noisy data</li>
+                <li>Quadratic fits noise, not true pattern</li>
+                <li>Simpler linear model = lower variance, better generalization</li>
+                <li>Use regularization or simpler models for noisy data</li>
+                <li>Bias-variance tradeoff principle applies</li>
+            </ul>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="slide">
+            <h1>Question 4: Linear Basis Functions</h1>
+            <h3>Question:</h3>
+            <p>Which of these is a linear basis function?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) All of the above</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>Linear basis function = linear in PARAMETERS, not input</li>
+                <li><strong>Polynomial:</strong> y = w₀ + w₁x + w₂x² (linear in w)</li>
+                <li><strong>Gaussian:</strong> RBF functions (linear in w)</li>
+                <li><strong>Sigmoidal:</strong> σ(x) functions (linear in w)</li>
+                <li>All enable non-linear input-output while staying linear in parameters</li>
+            </ul>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="slide">
+            <h1>Question 5: Learning Problem Components</h1>
+            <h3>Question:</h3>
+            <p>What are the things we must identify to have a learning problem?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (b) All of the above</strong>
+            </div>
+            <h3>Tom Mitchell's Definition:</h3>
+            <p>"A program learns from experience E with respect to task T and performance measure P"</p>
+            <ul>
+                <li><strong>Task (T):</strong> What the system learns to do</li>
+                <li><strong>Performance Measure (P):</strong> How to quantify improvement</li>
+                <li><strong>Experience (E):</strong> Training data</li>
+            </ul>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="slide">
+            <h1>Question 6: Logistic Regression Output</h1>
+            <h3>Question:</h3>
+            <p>Can logistic regression be applied only for Boolean output?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: FALSE</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Binary LR:</strong> 2 categories using sigmoid</li>
+                <li><strong>Multinomial LR:</strong> 3+ categories using softmax</li>
+                <li><strong>One-vs-Rest:</strong> Strategy for multiclass problems</li>
+                <li>Sigmoid for binary, Softmax for multiclass</li>
+                <li>Extends to any number of classes</li>
+            </ul>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="slide">
+            <h1>Question 7: Continuous Output Metrics</h1>
+            <h3>Question:</h3>
+            <p>If y is continuous, which evaluation metric is correct?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) SSD (Sum of Squared Differences)</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Classification metrics</strong> (Recall, Accuracy, Precision) - for discrete only</li>
+                <li><strong>Regression metrics</strong> - for continuous: MAE, MSE, RMSE, SSD, R²</li>
+                <li>SSD Formula: Σ(y_i - ŷ_i)²</li>
+                <li>Measures squared differences between predictions and actual values</li>
+            </ul>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="slide">
+            <h1>Question 8: Basis Functions in Linear Regression</h1>
+            <h3>Question:</h3>
+            <p>Which can be used as basis functions in linear regression models?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) All of the above</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Polynomial:</strong> Standard polynomial regression</li>
+                <li><strong>Gaussian:</strong> RBF networks, radial basis functions</li>
+                <li><strong>Sigmoidal:</strong> Local basis for curve fitting</li>
+                <li>All maintain linearity in parameters</li>
+                <li>All enable non-linear input-output relationships</li>
+            </ul>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="slide">
+            <h1>Question 9: Sigmoid Function Classification</h1>
+            <h3>Question:</h3>
+            <p>Which functions belong to the sigmoid class?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (a) σ(x) = 1/(1 + e^(-x))</strong>
+            </div>
+            <h3>Sigmoid Properties:</h3>
+            <ul>
+                <li>S-shaped curve</li>
+                <li>Bounded to (0, 1)</li>
+                <li>Monotonically increasing</li>
+                <li>Single inflection point</li>
+            </ul>
+            <p><strong>Not sigmoid:</strong> sin(x), cos(x), |x| (oscillating, non-monotonic, or non-smooth)</p>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="slide">
+            <h1>Question 10: Learning Rate Consequences</h1>
+            <h3>Question:</h3>
+            <p>What happens with improper learning rate in gradient descent?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) All the given options</strong>
+            </div>
+            <h3>Consequences:</h3>
+            <ul>
+                <li><strong>Too High α:</strong> Oscillations, overshooting, divergence</li>
+                <li><strong>Too Low α:</strong> Very slow convergence, potential local minima</li>
+                <li>Both extremes harmful</li>
+                <li>Optimal α: Quick drop then smooth leveling</li>
+            </ul>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="slide">
+            <h1>Question 11: Large Feature Regression</h1>
+            <h3>Scenario:</h3>
+            <p>m=20,000 examples, n=100,000 features. How to calculate θ?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (b) Use Gradient Descent</strong>
+            </div>
+            <h3>Computational Complexity:</h3>
+            <ul>
+                <li><strong>Normal Equation:</strong> O(n³) = O(10¹⁵) operations - prohibitive</li>
+                <li><strong>Gradient Descent:</strong> O(t×n×m) ≈ O(1.2×10¹³) - 80× faster</li>
+                <li>Recommendation: GD when n ≥ 10,000</li>
+                <li>Matrix inversion for 100,000×100,000 is computationally impractical</li>
+            </ul>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="slide">
+            <h1>Question 12: Cross-Entropy Cost Function</h1>
+            <h3>Question:</h3>
+            <p>Choose correct statement for logistic regression cost?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (a)</strong><br>
+                P(Y=1|X,θ) = 0 and actual label is 1 → very high cost
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>Formula when y=1: Cost = -log(p)</li>
+                <li>When p=0: Cost = -log(0) = ∞ (infinite penalty)</li>
+                <li>Worst possible prediction - completely wrong with high confidence</li>
+                <li>Other options represent perfect predictions (cost = 0)</li>
+            </ul>
+        </div>
+
+        <!-- Question 13 -->
+        <div class="slide">
+            <h1>Question 13: False Statement About Regression</h1>
+            <h3>Question:</h3>
+            <p>Which statement is FALSE about regression?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (a) It discovers causal relationships</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Correlation ≠ Causation:</strong> Regression finds associations only</li>
+                <li>Causality must be theoretically justified BEFORE analysis</li>
+                <li>Cannot discover causation through regression</li>
+                <li>Options b, c, d are all TRUE about regression</li>
+            </ul>
+        </div>
+
+        <!-- Question 14 -->
+        <div class="slide">
+            <h1>Question 14: Model Type Classification</h1>
+            <h3>Question:</h3>
+            <p>Is logistic regression a discriminative model?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: TRUE</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Discriminative:</strong> Models P(Y|X) directly</li>
+                <li>Learns decision boundary between classes</li>
+                <li>Cannot generate new data</li>
+                <li>Formula: P(Y=1|X,θ) = 1/(1+e^(-θᵀX))</li>
+                <li>Contrast: Naive Bayes is generative (models P(X|Y))</li>
+            </ul>
+        </div>
+
+        <!-- Question 15 -->
+        <div class="slide">
+            <h1>Question 15: Non-Differentiable Functions</h1>
+            <h3>Question:</h3>
+            <p>Can gradient descent be used for non-differentiable functions?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: FALSE</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>Gradient descent requires differentiable functions</li>
+                <li>Algorithm computes gradient ∇f(θ) for descent direction</li>
+                <li>At non-differentiable points, gradient doesn't exist</li>
+                <li>Example: |x| not differentiable at x=0</li>
+                <li><strong>Alternatives:</strong> Subgradient methods, smoothing, proximal methods</li>
+            </ul>
+        </div>
+
+        <!-- Question 16 -->
+        <div class="slide">
+            <h1>Question 16: Learning Rate Tuning</h1>
+            <h3>Observation:</h3>
+            <p>J(θ) decreases quickly then levels off with α=0.3 after 15 iterations</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) α=0.3 is effective</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>This is IDEAL convergence behavior</li>
+                <li><strong>Too low α:</strong> Would be very slow initially</li>
+                <li><strong>Too high α:</strong> Would cause oscillations</li>
+                <li>Observed pattern = rapid progress + smooth asymptotic approach</li>
+                <li>No adjustment needed</li>
+            </ul>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="slide">
+            <h1>Question 17: MLE Assumptions</h1>
+            <h3>Question:</h3>
+            <p>Choose correct statement for maximum likelihood estimation?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (a)</strong><br>
+                Assumes noise in the target variable
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li>Standard model: y_i = X_i β + ε_i where ε ~ N(0, σ²)</li>
+                <li><strong>Noise in:</strong> Target variable (y) only</li>
+                <li><strong>NOT in:</strong> Features (X) - assumed fixed/observed</li>
+                <li>MSE minimization equivalent to MLE with Gaussian noise</li>
+                <li>Extension: Errors-in-variables models assume noise in both</li>
+            </ul>
+        </div>
+
+        <!-- Question 18 -->
+        <div class="slide">
+            <h1>Question 18: Data Preprocessing Order</h1>
+            <h3>Question:</h3>
+            <p>Correct way to preprocess data for regression/classification?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d)</strong><br>
+                Normalize the data → PCA → training
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>CRITICAL:</strong> Normalize BEFORE PCA</li>
+                <li>PCA sensitive to scale - features dominate based on magnitude</li>
+                <li><strong>Example:</strong> Unscaled PCA: 35% accuracy, Scaled PCA: 96% accuracy!</li>
+                <li>Re-normalizing PCA output not standard</li>
+                <li>Standard sklearn pipeline: StandardScaler → PCA → Train</li>
+            </ul>
+        </div>
+
+        <!-- Question 19 -->
+        <div class="slide">
+            <h1>Question 19: Cross-Entropy Divergence</h1>
+            <h3>Question:</h3>
+            <p>What happens to cross-entropy as predicted probability diverges from actual label?</p>
+            <div class="answer-box">
+                <strong>Correct Answer: (d) Increases</strong>
+            </div>
+            <h3>Key Explanation:</h3>
+            <ul>
+                <li><strong>Fundamental property:</strong> Loss increases with divergence</li>
+                <li>Formula when y=1: Loss = -log(p)</li>
+                <li><strong>Example:</strong> p=0.99, y=1 → Loss≈0.01 (low)</li>
+                <li>p=0.01, y=1 → Loss≈4.61 (very high)</li>
+                <li>Heavily penalizes confident wrong predictions</li>
+            </ul>
+        </div>
+
+        <!-- Summary Slide -->
+        <div class="slide">
+            <h1>Key Takeaways</h1>
+            <h3>Activation Functions</h3>
+            <ul>
+                <li>Sigmoid: Non-linear, bounded, squashing property</li>
+            </ul>
+            <h3>Loss Functions & Metrics</h3>
+            <ul>
+                <li>MAE robust to outliers; MSE/RMSE sensitive</li>
+                <li>Cross-entropy increases with prediction divergence</li>
+            </ul>
+            <h3>Model Selection</h3>
+            <ul>
+                <li>Simpler models better for noisy data</li>
+                <li>Logistic regression: discriminative, binary & multiclass capable</li>
+            </ul>
+            <h3>Optimization & Preprocessing</h3>
+            <ul>
+                <li>Normalize BEFORE PCA (critical!)</li>
+                <li>Optimal learning rate: quick convergence + smooth leveling</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">21</span></span>
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) { currentSlide = totalSlides; }
+            if (n < 1) { currentSlide = 1; }
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            if (event.key === 'ArrowRight') changeSlide(1);
+        });
+        
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
